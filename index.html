@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CDN Tailwindcss link -->
+     <script src="https://cdn.tailwindcss.com"></script>
+     
+       <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+           fontFamily: {
+        mullish: ["Mulish", "sans-serif"],
+      },
+      colors: {
+        deepBlue: "#02042a",
+        lightBlue: "#2b84ea",
+        lightBlue300: "#4b94ed",
+        lightBlue500: "#0b72e7",
+        greenLight: "#61cea6",
+        grayText: "#818597",
+        lightGray: "#e2e2e2",
+        grayBlue: "#344a6c",
+        deepBlueHead: "#162f56",
+        gray2: "#525a76",
+        lightGreen: "#61cea6",
+      },
+        }
+      }
+    }
+  </script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./images/logo.svg" type="image/x-icon">
+
     <link rel="stylesheet" href="main.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Razorpay</title>
@@ -17,6 +49,10 @@
         />
 
     <style>
+
+      #body{
+        overflow-wrap: break-word;
+      }
         .corefeaturesection{
             background-size: 100% 100%;
             padding-top: 12rem;
@@ -40,15 +76,43 @@
           }
         }
 
+        .scroll-top.active {
+          visibility: visible;
+          opacity: 1;
+          z-index: 50;
+          
+        }
+
+        .MenuBtn.active {
+          visibility: visible;
+          right: 0;
+          transition: 0.3s ease;
+        }
+
+
+
     </style>
 
 </head>
 <body>
+
+
+
+  <!-- Scroll-Top btn-->
+    <div
+      class="scroll-top fixed bottom-10 right-8 text-white z-20 invisible opacity-0"
+      onclick="scrollToTop()"
+    >
+      <i
+        class="fa-solid fa-caret-up fa-lg bg-yellow-400 p-6 rounded-t-full text-black font-bold text-2xl hover:scale-105 hover:shadow-lg hover:text-pink-600 active:text-white z-40"
+      ></i>
+    </div>
+
     
   <div class="overflow-x-hidden relative w-full">
        <!--Navbar-->
     <nav class="bg-deepBlue">
-      <div class="relative w-[1080px] mx-auto flex items-center justify-between ">
+      <div class="relative right-[-2%] w-full lg:w-[1080px] mx-auto flex items-center lg:justify-between">
 
           <!-- logo -->
           <a href="/" class="cursor-pointer py-7 pr-7">
@@ -58,9 +122,11 @@
               height="30px"/>
           </a>
 
-          <ul class="flex space-x-6">
+
+          <!-- Nav Menus -->
+          <ul class="flex justify-center space-x-6">
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Payments</a>
 
               <div class="absolute bottom-0 w-full h-1 bg-lightBlue hidden group-hover:block
@@ -68,7 +134,7 @@
               </li>
 
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Banking</a>
 
               <div class="absolute bottom-0 w-full h-1 bg-lightBlue hidden group-hover:block
@@ -77,21 +143,21 @@
 
 
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Corporate Card</a>
 
               </li>
 
 
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Payroll</a>
 
               </li>
 
 
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Resources</a>
 
               <div class="absolute bottom-0 w-full h-1 bg-lightBlue hidden group-hover:block
@@ -100,7 +166,7 @@
 
 
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Support</a>
 
               <div class="absolute bottom-0 w-full h-1 bg-lightBlue hidden group-hover:block
@@ -109,7 +175,7 @@
               
 
               <li class="text-white font-mullish py-7 hover:text-lightBlue cursor-pointer
-               transition-all duration-200 relative group">
+               transition-all duration-200 relative group hidden lg:block">
               <a href="#">Pricing</a>
 
               <div class="absolute bottom-0 w-full h-1 bg-lightBlue hidden group-hover:block
@@ -117,17 +183,19 @@
               </li>
           </ul>
 
-          <div class="flex space-x-6">
-              <img
+          <div class="w-[100%] flex justify-end mr-8 space-x-6 overflow-auto lg:w-auto ">
+              <img class="hidden lg:block"
                   src="./images/india-flag.svg"
                   width="28px"
                   height="20px"
-                  />
+                />
               <button class="py-3 px-5 font-mullish text-white border-lightBlue border
               rounded-sm text-sm  font-bold">Log in</button>
+
+
               <button class="py-3 px-4 font-mullish rounded-sm text-sm font-bold
               bg-white text-lightBlue300 border transition-all duration-200
-              hover:text-lightBlue500 flex">Sign Up
+              hover:text-lightBlue500 hidden lg:block">Sign Up
               <svg
               viewBox="0 0 24 24"
               focusable="false"
@@ -138,19 +206,50 @@
                 d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
               ></path>
             </svg></button>
+
+                        <!-- menu icon -->
+              <button 
+              class="text-white flex lg:hidden self-center">
+                <i class="fa-solid fa-bars text-3xl text-white"></i>
+              </button>
+
           </div>
-
-
       </div>
+
+                <!-- Responsive NavBar -->
+                <section
+                class="MenuBtn lg:hidden invisible flex flex-col fixed right-[-100%] top-[70px] z-40 bg-blue-900 w-full p-10 rounded-md duration-300">
+                  <h1 class="border-2 text-center p-1 border-sky-300 text-4xl font-bold text-green-600">PAYMENTS</h1>
+                  <a class="hover:cursor-pointer text-2xl text-white">paymentGateway</a>
+                  <a class="hover:cursor-pointer text-2xl text-white">paymentLinks</a>
+                  <a class="hover:cursor-pointer text-2xl text-white">PaymentButtons</a>
+
+                  <span class="border-y-2 border-sky-300 hover:cursor-pointer text-3xl text-white">Explore Payment Suite </span>
+                  <br>
+                  <h2 class="border-y-2 border-sky-300 hover:cursor-pointer text-3xl text-white">RAZORPAY X - BANKING SUITE</h2>
+
+                  <a class="hover:cursor-pointer text-2xl text-white">CurrentAccounts</a>
+                  <a class="hover:cursor-pointer text-2xl text-white">VendorPayments</a>
+                  <a class="hover:cursor-pointer text-2xl text-white">Payroll</a>
+                  <a class="hover:cursor-pointer text-2xl text-white">Pricing </a>
+                  <a class="hover:cursor-pointer text-2xl text-white">Resources </a>
+                  <a class="hover:cursor-pointer text-2xl text-white">Partners </a>
+                  <a class="hover:cursor-pointer text-2xl text-white">Support </a>
+                  <br>
+                  <button class="bg-lightBlue500 py-3 px-5 font-mullish text-white border-lightBlue border
+                  rounded-sm text-xl font-bold">LogIn</button>
+                </section>
   </nav>
 
   <!--Hero Section-->
-  <section
-  class="relative bg-deepBlue">
+  <section class="relative bg-deepBlue">
 
-  <div class="w-10/12 max-w-[1080px] flex flex-row justify-between items-center mx-auto ">
+    <!-- close NavBar -->
+  <div id="CL" class="close"></div>
+
+  <div class="w-10/12 max-w-[1080px] flex flex-col justify-between items-center mx-auto lg:flex-row">
       <!--left part-->
-      <div class="space-y-8">
+      <div class="space-y-8 items-center">
           <h1 class="font-mullish font-bold text-[40px] leading-[1.2] text-white">Power your finance, grow your business</h1>
           <div class="w-6 h-1 bg-greenLight"></div>
           <p class="font-mullish text-[18px] leading-7 text-white opacity-70">
@@ -159,12 +258,12 @@
           </p>
           <button
           class="bg-lightBlue text-white  py-[14px] px-[18px] rounded-md font-mullish font-bold
-          hover:bg-lightBlue500 transition-all duration-200"
+          hover:bg-lightBlue500 transition-all duration-200 w-full sm:w-40"
           >Sign Up Now</button>
       </div>
       <!--right part-->
       <img src="./images/hero-illustration.jpg" alt=""
-      class="w-full max-w-[680px]">
+      class="w-full max-w-[680px] xl:max-[0px]">
   </div>
 
   <!--shape part-->
@@ -175,7 +274,7 @@
 
   </section>
 
-  <!--feature section - 1-->
+<!--feature section - 1-->
   <section class="relative mt-[190px] overflow-hidden">
       <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy" 
       width="233"
@@ -189,7 +288,8 @@
 
       <div class="relative w-11/12 max-w-[1080px] mx-auto pt-4">
           <!--heading-->
-          <h2 class="font-mullish text-center text-2xl leading-[1.2] font-extrabold">Accept Payments with Razorpay Payment Suite</h2>
+          <h2 class="font-mullish text-center text-2xl leading-[1.2] font-extrabold hidden md:flex">Accept Payments with Razorpay Payment Suite</h2>
+          <h2 class="font-mullish text-center text-4xl leading-[1.2] font-extrabold md:hidden">Exploer Payments with Razorpay </h2>
           <div class="w-6 h-1 bg-greenLight mx-auto mt-4 mb-6"></div>
 
           <!--content box-->
@@ -197,7 +297,7 @@
               <!--left section-->
               <div class="flex flex-col justify-between  w-full">
                   <h3 class="font-mullish text-[28px] leading-10 font-bold max-w-[500px]">
-                      Supercharge your business with the all‑powerful
+                      Supercharge your business with the all-powerful
                       <span class="text-lightBlue">Payment Gateway</span>
                   </h3>
                   <ul class="space-y-2">
@@ -229,16 +329,17 @@
                   </ul>
 
               <!-- for button and hyperlink-->
-              <div class="flex flex-row items-center space-x-4 ">
+              <div class="flex flex-col-reverse md:flex-row items-center space-x-4">
                   <button
-                  class="bg-lightBlue w-fit text-white py-[14px] px-[18px] rounded-md
-                  font-mullish font-bold hover:bg-lightBlue500 translate-all duration-200"
-                  >Sign Up Now</button>
+                  class="bg-lightBlue w-full text-white py-[14px] px-[18px] rounded-md
+                  font-mullish font-bold hover:bg-lightBlue500 translate-all duration-200 md:w-fit"
+                  >Sign Up Now
+                  </button>
                   <!--hyperlink-->
-                  <div class="flex items-center cursor-pointer group">
+                  <div class="flex self-start md:items-center cursor-pointer group mb-5">
                       <a href="#" 
                       class="font-mullish font-bold text-lightBlue500 
-                      group-hover:text-grayBlue transition-all duration-200"
+                      group-hover:text-grayBlue transition-all duration-200 "
                       >Know More</a>
                       <i
                       data-feather="chevron-right"
@@ -248,11 +349,13 @@
               </div>
 
               </div>
+              <!-- Right section -->
               <img src="./images/payment-suite.png" alt=""
-              class="max-w-[600px] absolute right-0 bottom-0">
+              class="max-w-[600px] absolute right-0 bottom-0 hidden md:max-w-[400px] lg:max-w-[600px] md:block lg:block">
           </div>
 
-          <div class="w-full grid grid-cols-3 gap-4 mt-10">
+ <!--feature section - 2-->
+          <div class="w-full grid grid-cols-1 gap-4 mt-10 md:grid-cols-2 lg:grid-cols-3">
               <!--Box1-->
               <div class="w-full min-h-[15rem] relative cursor-pointer">
                   <img src="./images/payment-link-icon.svg" alt=""
@@ -641,11 +744,11 @@
                               </span>
                           </li>
                       </ul>
-                      <div class="flex flex-row w-full items-center space-x-4 ">
+                      <div class="flex flex-col-reverse w-full items-center space-x-4 md:flex-row">
                           <button
                           class="relative bg-lightBlue flex items-center 
-                          justify-start text-white py-[14px] px-[18px] md:pr-[90px] rounded-md
-                           font-mullish font-bold hover:bg-lightBlue500 transition-all duration-200">
+                          place-content-center md:justify-start text-white py-[14px] px-[18px] md:pr-[90px] rounded-md
+                           font-mullish font-bold hover:bg-lightBlue500 transition-all duration-200 self-stretch">
                               Sign Up
                               <div class="w-12 h-[60px] bg-greenLight absolute right-6 skew-x-[20deg] 
                               flex justify-center items-center">
@@ -663,7 +766,7 @@
                               </div>
                           </button>
                           <!--hyperlink wala-->
-                          <div class="flex flex-row items-center cursor-pointer group">
+                          <div class="flex flex-row self-start items-center cursor-pointer group mb-5">
                               <a href="#"
                               class="font-mullish font-bold text-lightBlue500 group-hover:text-lightBlue
                               transition-all duration-200"
@@ -677,11 +780,11 @@
                   </div>
                   <!--background image for content box-->
                   <img src="./images/buisness-banking.png" alt=""
-                  class="max-w-[600px] absolute right-0 bottom-0 z-4 ">
+                  class="max-w-[600px] absolute right-0 bottom-0 z-4 hidden md:max-w-[300px] lg:max-w-[600px] md:block lg:block">
               </div>
 
               <!--card box-->
-              <div class="grid grid-cols-3 w-full gap-4 my-14">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4 my-14">
                   <!--box1-->
                   <div
                   class="w-full min-h-[15rem] relative cursor-pointer featureCard2"
@@ -865,8 +968,8 @@
               </div>
 
               <!--demo-box-->
-              <div class="w-full flex flex-row items-center justify-evenly border border-slate-700
-              mb-24 gap-y-6  relative rounded-md p-8">
+              <div class="w-full items-center justify-evenly border border-slate-700
+              mb-24 gap-y-6  relative rounded-md p-8 hidden md:flex-col lg:flex-row md:flex lg:flex">
                   
                   <p class="font-mullish text-white text-xl">Check out the live demo to learn how RazorpayX works.
                       <span class="font-bold"> No sign-up required!</span>
@@ -908,7 +1011,7 @@
           <img src="./images/feature-section1-dottedrows.png" alt=""
           class="absolute w-[233px] -right-[3.5rem] -top-[6rem] z-10" >
 
-          <div class="w-full grid grid-cols-3 gap-y-10 gap-x-4 relative z-[100]">
+          <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-4 relative z-[100]">
               <!--item 1-->
               <div class="relative flex items-center z-0">
                   <h2
@@ -1039,14 +1142,15 @@
   <section class="w-full bg-[url(/images/core-features-sectionBg.svg)] 
   bg-no-repeat bg-cover bg-center mt-14 relative corefeaturesection">
       <div class="relative w-11/12 max-w-[1080px] mx-auto pt-4">
-          <h2 class="font-mullish font-bold text-2xl text-center text-white">Features</h2>
+          <h2 class="font-mullish font-bold text-2xl text-center text-white hidden">Features</h2>
+          <h2 class="font-mullish font-bold text-4xl text-center text-black md:text-white">Features</h2>
           <div class="w-6 h-1 bg-greenLight mx-auto mt-4 mb-6"></div>
           <p
           class="font-mullish text-center max-w-[450px] text-white mx-auto"
           >Empower your business with all the right tools to accept online payments and provide the best customer experience</p>
 
           <!--grid -->
-          <div class="grid grid-cols-4 gap-[2rem] mt-8">
+          <div class="text-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem] mt-8">
               <!--card1-->
               <div>
                   <img src="./images/instant-activation-icon.svg" alt=""
@@ -1112,11 +1216,11 @@
 
   <section class="bg-[#f5f8fe] relative pt-40 pb-12 -mt-[200px] -z-[100]">
 
-    <div class="w-11/12 max-w-[1080px] mx-auto relative flex flex-row">
+    <div class="w-11/12 max-w-[1080px] mx-auto relative flex flex-col md:flex-row">
 
       <!--left part -->
-      <div class="flex flex-col justify-center max-w-[calc(100%-500px)]">
-        <h2 class="font-mullish font-bold text-2xl text-deepBlueHead"
+      <div class="flex flex-col justify-center w-full md:max-w-[calc(100%-500px)]">
+        <h2 class="font-mullish font-bold text-2xl text-deepBlueHead "
         >Join the 50,00,000+ businesses using Razorpay
         </h2>
         <div class="w-6 h-1 bg-greenLight  my-4 mb-10"></div>
@@ -1126,7 +1230,7 @@
       </div>
 
       <!--right part-->
-      <div class="h-[500px] w-[500px] relative overflow-y-hidden ">
+      <div class="h-[500px] w-[500px] relative overflow-y-hidden mx-auto">
         <div style="background: linear-gradient(180deg, #f4f8ff, #fff0)"
         class="absolute w-full h-[150px] top-0 z-50">    </div>
 
@@ -1183,7 +1287,7 @@
 
 
     <!-- main content -->
-    <div class="flex flex-row max-w-[960px] items-center mx-auto my-20 space-x-[10rem]">
+    <div class="flex flex-col xl:flex-row max-w-[960px] items-center mx-auto my-20 space-x-[10rem]">
       <!--left image -->
       <img src="./images/testimonial.jpg" alt=""
       height="320px"
@@ -1191,16 +1295,16 @@
       class="rounded-xl">
 
       <!-- riught part-->
-      <div class="max-w-[400px]">
+      <div class="max-w-[400px] flex flex-col mt-5 ">
         <img src="./images/quotes.svg" alt=""
         width="35px"
         height="40px"
         class="-mb-2">
-        <p class="font-mullish text-3xl font-extralight">
+        <p class="font-mullish text-3xl font-extralight xl:order-1">
           Readymade Closed Wallet Solution For Quick Refunds</p>
-        <a href="#" class="text-grayText italic underline">Learn More</a>
-        <p class="font-mullish font-extrabold text-2xl">Lorem Ipsum</p>
-        <p class="font-mullish font-medium">CEO, XYZ Engineering Company</p>
+        <a href="#" class="text-grayText italic underline xl:order-1">Learn More</a>
+        <p class="font-mullish font-extrabold text-2xl -order-1 xl:order-1">Lorem Ipsum</p>
+        <p class="font-mullish font-medium xl:order-1">CEO, XYZ Engineering Company</p>
         <img src="./images/fake-company-logo.png" alt="" width="80px" height="40px">
       </div>
     </div>
@@ -1262,8 +1366,8 @@
         </ul>
 
         <button
-        class="min-w-[32px] font-mullish text-sm font-bold bg-white text-lightBlue300 border flex
-        rounded-sm items-center hover:text-lightBlue500 transition-all duration-200 py-3 px-4 place-self-start">
+        class="min-w-[32px] font-mullish text-sm font-bold bg-purple-400 text-black border flex
+        rounded-sm items-center hover:text-lightBlue500 transition-all duration-200 py-3 px-4 place-self-start md:bg-white  md:text-lightBlue300 self-stretch md:w-fit place-content-center">
           Sign Up
           <svg
           viewBox="0 0 24 24"
@@ -1282,7 +1386,8 @@
       </div>
 
       <!--right side wali image-->
-      <img src="./images/ctaImg.svg" alt="" width="240px" height="282px" class="mt-16 pt-3">
+      <img src="./images/ctaImg.svg" alt="" width="240px" height="282px" 
+      class="mt-16 pt-3 hidden lg:block">
 
     </div>
   </section>
@@ -1374,9 +1479,7 @@
         </div>
       </div>
       <!-- column - 2 -->
-      <div
-        class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 justify-between"
-      >
+      <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 justify-between">
         <!-- sub column - 1 -->
         <div class="space-y-3">
           <div>
@@ -1960,11 +2063,23 @@
         </div>
       </div>
     </div>
+      
   </footer>
 
 
     <script>
         feather.replace()
     </script>
+
+    <!-- link js file -->
+    <script src="./logic.js"></script>
+
+     <!-- font -->
+    <script
+      src="https://kit.fontawesome.com/58a810656e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    
 </body>
 </html>
