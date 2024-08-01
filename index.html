@@ -1493,7 +1493,9 @@
                 height="40px"
                 class="-mb-2"
               />
-              <p class="font-mullish sm:text-3xl text-2xl font-extralight xl:order-1">
+              <p
+                class="font-mullish sm:text-3xl text-2xl font-extralight xl:order-1"
+              >
                 Readymade Closed Wallet Solution For Quick Refunds
               </p>
               <a href="#" class="text-grayText italic underline xl:order-1"
@@ -2275,14 +2277,37 @@
     </footer>
     <!-- =========================JavaScript======================== -->
 
-    <!-- JS file -->
-    <script src="./script.js"></script>
-
     <!--   feather.replace(); -->
-      <script>
-          feather.replace();
-      </script>
-      
+    <script>
+      // An Experience section left Right Raundend button
+      feather.replace();
+
+
+      // top Scroller Button
+      const scrollbtn = document.querySelector(".scroll-top");
+
+      window.addEventListener("scroll", () => {
+        scrollbtn.classList.toggle("active", window.scrollY > 500);
+      });
+
+      // onclick function in html Element
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // new Animation NavBar
+      const NavMenu = document.querySelector(".MenuBtn");
+      const hambergun = document.querySelector(".fa-bars");
+
+      hambergun.addEventListener("click", () => {
+        hambergun.classList.toggle("fa-xmark");
+        NavMenu.classList.toggle("active");
+      });
+    </script>
+
     <!-- font -->
     <script
       src="https://kit.fontawesome.com/58a810656e.js"
